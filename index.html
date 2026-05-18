@@ -102,6 +102,36 @@ body::after{
 /* TEXTO */
 
 .intro{
+    <section class="blog-section">
+    <div class="identity-card">
+
+    <div class="identity-noise"></div>
+
+    <h2>identidad</h2>
+
+    <div class="identity-content">
+
+        <p>
+        Cristopher Alexander Andrade Pilay
+        </p>
+
+        <span>
+        nacido en 2008 — 09 de marzo
+        </span>
+
+        <div class="line"></div>
+
+        <p class="small">
+        amo los mimos y a la Amanda
+        </p>
+
+        <p class="small">
+        camino a ser “un poco de todo”
+        </p>
+
+    </div>
+
+</div>
     max-width:900px;
     margin-top:60px;
     padding:40px;
@@ -188,7 +218,107 @@ body::after{
 
 }
 
-</style>
+</style
+    .identity-card{
+    width:100%;
+    max-width:900px;
+    margin:80px auto;
+    position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    padding:60px;
+    background:
+    linear-gradient(
+        to bottom right,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.01)
+    );
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+    0 0 40px rgba(255,255,255,0.03),
+    inset 0 0 30px rgba(255,255,255,0.02);
+}
+
+.identity-noise{
+    position:absolute;
+    inset:0;
+    background-image:url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity:0.07;
+    pointer-events:none;
+}
+
+.identity-card h2{
+    font-family:'Cormorant Garamond', serif;
+    font-size:4rem;
+    font-weight:300;
+    margin-bottom:40px;
+    text-transform:lowercase;
+    letter-spacing:3px;
+}
+
+.identity-content p{
+    font-size:1.3rem;
+    line-height:2;
+    opacity:0.9;
+    letter-spacing:1px;
+}
+
+.identity-content span{
+    display:block;
+    margin-top:10px;
+    opacity:0.45;
+    letter-spacing:4px;
+    font-size:0.8rem;
+    text-transform:uppercase;
+}
+
+.line{
+    width:100%;
+    height:1px;
+    background:rgba(255,255,255,0.1);
+    margin:35px 0;
+}
+
+.small{
+    font-size:1rem !important;
+    opacity:0.7 !important;
+    text-transform:lowercase;
+}
+
+/* efecto y2k */
+
+.identity-card::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+    top:-120px;
+    right:-120px;
+    filter:blur(40px);
+}
+
+/* responsive */
+
+@media(max-width:768px){
+
+.identity-card{
+    padding:35px;
+}
+
+.identity-card h2{
+    font-size:3rem;
+}
+
+.identity-content p{
+    font-size:1rem;
+}
+
+}
 </head>
 
 <body>
