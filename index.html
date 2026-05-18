@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,6 +17,10 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:#050505;
     color:white;
@@ -23,61 +28,114 @@ body{
     font-family:'Space Mono', monospace;
 }
 
-/* Fondo */
+/* FONDO */
 
 .background{
     position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
+    inset:0;
+
     background:
-    radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%),
-    linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,1)),
-    url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=1400') center/cover;
-    filter:blur(6px) brightness(0.3);
-    z-index:-2;
+    radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,1)),
+    url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=1600') center/cover;
+
+    filter:blur(6px) brightness(0.25);
+
+    z-index:-3;
 }
 
-/* Grain */
+/* GRAIN */
 
 body::after{
     content:"";
     position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
+    inset:0;
+
     background-image:url('https://grainy-gradients.vercel.app/noise.svg');
+
     opacity:0.08;
     pointer-events:none;
-    z-index:-1;
+    z-index:-2;
+}
+
+/* NAV */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:25px 40px;
+
+    z-index:1000;
+
+    backdrop-filter:blur(10px);
+
+    background:rgba(0,0,0,0.2);
+
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.logo{
+    letter-spacing:5px;
+    opacity:0.7;
+    font-size:0.8rem;
+}
+
+.menu{
+    display:flex;
+    gap:30px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    opacity:0.5;
+    transition:0.3s;
+    font-size:0.8rem;
+}
+
+.menu a:hover{
+    opacity:1;
 }
 
 /* HERO */
 
 .hero{
     min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
+
     text-align:center;
-    padding:80px 20px;
+
+    padding:140px 20px 80px;
 }
 
 .hero h1{
     font-family:'Cormorant Garamond', serif;
-    font-size:7rem;
+
+    font-size:8rem;
     font-weight:300;
-    letter-spacing:4px;
+
+    letter-spacing:3px;
+
     margin-bottom:10px;
+
+    text-shadow:0 0 40px rgba(255,255,255,0.15);
 }
 
 .subtitle{
-    opacity:0.5;
-    letter-spacing:5px;
-    font-size:0.9rem;
+    letter-spacing:6px;
+    opacity:0.45;
+    font-size:0.85rem;
+
     margin-bottom:50px;
 }
 
@@ -86,147 +144,70 @@ body::after{
 .main-image{
     width:100%;
     max-width:700px;
+
     border-radius:30px;
     overflow:hidden;
-    border:1px solid rgba(255,255,255,0.1);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    background:rgba(255,255,255,0.03);
+
     backdrop-filter:blur(20px);
-    box-shadow:0 0 50px rgba(255,255,255,0.05);
+
+    box-shadow:
+    0 0 60px rgba(255,255,255,0.03);
 }
 
 .main-image img{
     width:100%;
     display:block;
-    filter:contrast(1.05) brightness(0.95);
+
+    filter:
+    contrast(1.05)
+    brightness(0.95);
 }
 
-/* TEXTO */
+/* INTRO */
 
 .intro{
-    <section class="blog-section">
-    <div class="identity-card">
-
-    <div class="identity-noise"></div>
-
-    <h2>identidad</h2>
-
-    <div class="identity-content">
-
-        <p>
-        Cristopher Alexander Andrade Pilay
-        </p>
-
-        <span>
-        nacido en 2008 — 09 de marzo
-        </span>
-
-        <div class="line"></div>
-
-        <p class="small">
-        amo los mimos y a la Amanda
-        </p>
-
-        <p class="small">
-        camino a ser “un poco de todo”
-        </p>
-
-    </div>
-
-</div>
+    width:100%;
     max-width:900px;
+
     margin-top:60px;
-    padding:40px;
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(255,255,255,0.08);
-    backdrop-filter:blur(20px);
+
+    padding:45px;
+
     border-radius:30px;
+
+    background:rgba(255,255,255,0.03);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(20px);
 }
 
 .intro p{
-    line-height:2.2;
-    font-size:1rem;
+    line-height:2.3;
     opacity:0.75;
 }
 
-/* BLOG */
+/* IDENTIDAD */
 
-.blog-section{
-    width:100%;
-    max-width:1000px;
-    margin:auto;
-    padding:120px 20px;
-}
+.identity-card{
 
-.blog-title{
-    font-family:'Cormorant Garamond', serif;
-    font-size:4rem;
-    margin-bottom:60px;
-    font-weight:300;
-    text-align:center;
-}
-
-.post{
-    margin-bottom:50px;
-    padding:40px;
-    border-radius:30px;
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(255,255,255,0.08);
-    backdrop-filter:blur(15px);
-    transition:0.4s;
-}
-
-.post:hover{
-    transform:translateY(-5px);
-    background:rgba(255,255,255,0.05);
-}
-
-.post h2{
-    font-family:'Cormorant Garamond', serif;
-    font-size:2.5rem;
-    margin-bottom:20px;
-    font-weight:300;
-}
-
-.post p{
-    opacity:0.7;
-    line-height:2;
-}
-
-/* FOOTER */
-
-.footer{
-    text-align:center;
-    padding:80px 20px;
-    opacity:0.3;
-    font-size:0.8rem;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-.hero h1{
-    font-size:4rem;
-}
-
-.blog-title{
-    font-size:3rem;
-}
-
-.post h2{
-    font-size:2rem;
-}
-
-}
-
-</style
-    .identity-card{
     width:100%;
     max-width:900px;
-    margin:80px auto;
+
+    margin-top:50px;
+
     position:relative;
+
     overflow:hidden;
+
     border-radius:30px;
+
     padding:60px;
+
     background:
     linear-gradient(
         to bottom right,
@@ -243,20 +224,33 @@ body::after{
     inset 0 0 30px rgba(255,255,255,0.02);
 }
 
-.identity-noise{
+.identity-card::before{
+    content:"";
+
     position:absolute;
-    inset:0;
-    background-image:url('https://grainy-gradients.vercel.app/noise.svg');
-    opacity:0.07;
-    pointer-events:none;
+
+    width:300px;
+    height:300px;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,255,255,0.08),
+    transparent 70%);
+
+    top:-120px;
+    right:-120px;
+
+    filter:blur(40px);
 }
 
 .identity-card h2{
     font-family:'Cormorant Garamond', serif;
+
     font-size:4rem;
     font-weight:300;
+
     margin-bottom:40px;
-    text-transform:lowercase;
+
     letter-spacing:3px;
 }
 
@@ -264,47 +258,127 @@ body::after{
     font-size:1.3rem;
     line-height:2;
     opacity:0.9;
-    letter-spacing:1px;
 }
 
 .identity-content span{
     display:block;
+
     margin-top:10px;
+
     opacity:0.45;
+
     letter-spacing:4px;
+
     font-size:0.8rem;
+
     text-transform:uppercase;
 }
 
 .line{
     width:100%;
     height:1px;
-    background:rgba(255,255,255,0.1);
+
+    background:rgba(255,255,255,0.08);
+
     margin:35px 0;
 }
 
 .small{
     font-size:1rem !important;
     opacity:0.7 !important;
-    text-transform:lowercase;
 }
 
-/* efecto y2k */
+/* BLOG */
 
-.identity-card::before{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    background:radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
-    top:-120px;
-    right:-120px;
-    filter:blur(40px);
+.blog-section{
+    width:100%;
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:120px 20px;
 }
 
-/* responsive */
+.blog-title{
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:5rem;
+    font-weight:300;
+
+    text-align:center;
+
+    margin-bottom:70px;
+}
+
+.post{
+    margin-bottom:40px;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.03);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(20px);
+
+    transition:0.4s;
+}
+
+.post:hover{
+    transform:translateY(-5px);
+
+    background:rgba(255,255,255,0.05);
+}
+
+.post h2{
+    font-family:'Cormorant Garamond', serif;
+
+    font-size:2.5rem;
+    font-weight:300;
+
+    margin-bottom:20px;
+}
+
+.post p{
+    opacity:0.75;
+    line-height:2;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+
+    padding:80px 20px;
+
+    opacity:0.3;
+
+    font-size:0.8rem;
+
+    letter-spacing:3px;
+}
+
+/* RESPONSIVE */
 
 @media(max-width:768px){
+
+nav{
+    padding:20px;
+}
+
+.menu{
+    gap:15px;
+}
+
+.hero h1{
+    font-size:4rem;
+}
+
+.subtitle{
+    font-size:0.7rem;
+}
 
 .identity-card{
     padding:35px;
@@ -314,16 +388,37 @@ body::after{
     font-size:3rem;
 }
 
-.identity-content p{
-    font-size:1rem;
+.blog-title{
+    font-size:3rem;
+}
+
+.post h2{
+    font-size:2rem;
 }
 
 }
+
+</style>
 </head>
 
 <body>
 
 <div class="background"></div>
+
+<nav>
+
+    <div class="logo">
+        AMBIVALENCIA
+    </div>
+
+    <div class="menu">
+        <a href="#">home</a>
+        <a href="#">blog</a>
+        <a href="#">archivos</a>
+        <a href="#">contacto</a>
+    </div>
+
+</nav>
 
 <section class="hero">
 
@@ -335,7 +430,7 @@ body::after{
 
     <div class="main-image">
 
-        <!-- CAMBIA "foto.png" POR EL NOMBRE DE TU FOTO -->
+        <!-- SUBE TU FOTO A GITHUB Y CAMBIA EL NOMBRE SI QUIERES -->
 
         <img src="foto.png">
 
@@ -346,6 +441,34 @@ body::after{
         <p>
         Cree esta pagina con el objetivo de que el mundo me conozca poco a poco, no solo se quede en un instagram vacio, ya que siento que soy mas completo que todo eso. Aqui subire quien soy y como me siento, como un blog o algo cercano a eso.
         </p>
+
+    </div>
+
+    <div class="identity-card">
+
+        <h2>identidad</h2>
+
+        <div class="identity-content">
+
+            <p>
+            Cristopher Alexander Andrade Pilay
+            </p>
+
+            <span>
+            nacido en 2008 — 09 de marzo
+            </span>
+
+            <div class="line"></div>
+
+            <p class="small">
+            amo los mimos y a la Amanda
+            </p>
+
+            <p class="small">
+            camino a ser “un poco de todo”
+            </p>
+
+        </div>
 
     </div>
 
@@ -362,8 +485,8 @@ body::after{
         <h2>primer post</h2>
 
         <p>
-        aqui puedes comenzar a escribir lo que quieras.
-        pensamientos, recuerdos, emociones, experiencias o simplemente cosas que pasan por tu mente.
+        aqui puedes escribir lo que quieras.
+        pensamientos, emociones, historias, recuerdos o simplemente cosas que pasan por tu cabeza.
         </p>
 
     </div>
@@ -373,7 +496,8 @@ body::after{
         <h2>otra version de mi</h2>
 
         <p>
-        puedes transformar esta pagina poco a poco y convertirla en algo mucho mas personal.
+        esta pagina ira cambiando conmigo.
+        probablemente nunca tenga una forma final.
         </p>
 
     </div>
